@@ -11,14 +11,16 @@
         }
     ],
     "require": {
-        "php": ">=8.0"
+        "php": ">=8.0",
+        "ext-openssl": "*"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.0 || ^9.0"
     },
     "autoload": {
         "psr-4": {
-            "Txtech\\SfCrypt\\": "src/"
+            "Txtech\\SfCrypt\\": "src/",
+            "Txtech\\SfCrypt\\Test\\": "tests/"
         }
     },
     "scripts": {

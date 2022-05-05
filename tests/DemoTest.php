@@ -1,18 +1,19 @@
 <?php
 
+namespace Txtech\SfCrypt\Test;
+
 use Txtech\SfCrypt\BizMsgCrypt;
 
-
 /**
- * User : Zelin Ning(NiZerin)
- * Date : 2022/5/5
- * Time : 18:03
- * Email: i@nizer.in
- * Site : nizer.in
- * FileName: Demo.php
+ * Class DemoTest
+ * @package Txtech\SfCrypt\Test
  */
 class DemoTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @return void
+     * @throws \Exception
+     */
     public function testEnCrypt()
     {
         $encodingAesKey = "dcLutUPXvxDjzVDgLV0SsAI5UAxmEloNHEZVtgxnvuA";
@@ -24,7 +25,7 @@ class DemoTest extends \PHPUnit\Framework\TestCase
 
         $pc = new BizMsgCrypt($token, $encodingAesKey, $appId);
 
-        $result = $pc->encryptMsg($text, $timeStamp, $nonce);
+        $result = $pc->encryptMsg($timeStamp, $text, $nonce);
         $this->assertIsArray($result);
 
         $encrypt = "8J2XeGGpK5oEcIytFfln91CYH4VfeXpV73X7Q+O9lJFTlMr0eV4YH+6r0HpIY8pSJIPqeVqEcjFR+ZS92b9M7jnijYEh6LMkCg85XP5tDBMbbk+eWrU8++mzaa7jKI7W";

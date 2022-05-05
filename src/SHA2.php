@@ -14,19 +14,19 @@ class SHA2
     /**
      * 用sha256算法生成安全签名
      * @param string $token 票据
-     * @param string $timestamp 时间戳
+     * @param int $timestamp 时间戳
      * @param string $nonce 随机字符串
      * @param string $encrypt_msg 密文消息
      */
-    public function getSHA2($token, $timestamp, $nonce, $encrypt_msg)
+    public function getSHA2(string $token, int $timestamp, string $nonce, string $encrypt_msg): array
     {
         try {
-            $array = array($encrypt_msg, $token, $timestamp, $nonce);
+            $array = [$encrypt_msg, $token, $timestamp, $nonce];
             sort($array, SORT_STRING);
             $str = implode($array);
-            return array(ErrorCode::$OK, hash('sha256', $str));
+            return [ErrorCode::$OK, hash('sha256', $str)];
         } catch (Exception $e) {
-            return array(ErrorCode::$ComputeSignatureError, null);
+            return [ErrorCode::$ComputeSignatureError, null];
         }
     }
 }

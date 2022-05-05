@@ -10,14 +10,14 @@ namespace Txtech\SfCrypt;
 class PKCS7Encoder
 {
     /** @var int */
-    private static $block_size = 32;
+    private static int $block_size = 32;
 
     /**
      * 对需要加密的明文进行填充补位
      * @param String $text 需要进行填充补位操作的明文
      * @return string 补齐明文字符串
      */
-    public function encode($text)
+    public function encode(string $text): string
     {
         $text_length = strlen($text);
 
@@ -36,7 +36,7 @@ class PKCS7Encoder
      * @param $text String 解密后的明文
      * @return string 删除填充补位后的明文
      */
-    public function decode($text)
+    public function decode(string $text): string
     {
         $pad = ord(substr($text, -1));
         if ($pad < 1 || $pad > 32) {
