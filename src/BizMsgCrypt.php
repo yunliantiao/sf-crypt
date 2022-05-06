@@ -43,12 +43,12 @@ class BizMsgCrypt
      * 消息加密打包.
      *
      * @param $replyMsg string 返回用户的消息，String字符串
-     * @param $timeStamp int 时间戳，可以自己生成，默认取当前时间戳
+     * @param $timeStamp string 时间戳，可以自己生成，默认取当前时间戳
      * @param $nonce string 随机串，可以自己生成
      *
      * @return array 成功返回数组,失败返回非0状态码
      */
-    public function encryptMsg(int $timeStamp, string $replyMsg, string $nonce)
+    public function encryptMsg(string $timeStamp, string $replyMsg, string $nonce)
     {
         $pc = new PrpCrypt($this->encodingAesKey);
 
@@ -83,13 +83,13 @@ class BizMsgCrypt
     /**
      * 检验消息的真实性，并且获取解密后的明文.
      *
-     * @param $timestamp int 时间戳 对应URL参数的timestamp
+     * @param $timestamp string 时间戳 对应URL参数的timestamp
      * @param $nonce string 随机串，对应URL参数的nonce
      * @param $encrypt string 密文，对应POST请求的数据
      *
      * @return array 成功0，失败返回对应的错误码
      */
-    public function decryptMsg(int $timestamp, string $nonce, string $encrypt)
+    public function decryptMsg(string $timestamp, string $encrypt, string $nonce)
     {
         $pc = new Prpcrypt($this->encodingAesKey);
 

@@ -29,7 +29,7 @@ class DemoTest extends \PHPUnit\Framework\TestCase
         $this->assertIsArray($result);
 
         $encrypt = "8J2XeGGpK5oEcIytFfln91CYH4VfeXpV73X7Q+O9lJFTlMr0eV4YH+6r0HpIY8pSJIPqeVqEcjFR+ZS92b9M7jnijYEh6LMkCg85XP5tDBMbbk+eWrU8++mzaa7jKI7W";
-        $deResult = $pc->decryptMsg($timeStamp, $nonce, $encrypt);
+        $deResult = $pc->decryptMsg($timeStamp, $encrypt, $nonce);
         $this->assertIsArray($deResult);
     }
 }
